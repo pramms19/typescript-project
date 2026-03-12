@@ -8,9 +8,15 @@ import {
   NavigationMenuTrigger,
 } from "./ui/navigation-menu";
 
+interface NavItem {
+  id: number;
+  name: string;
+  to: string;
+}
+
 export default function MenuItems() {
-  const [open, setOpen] = useState(false);
-  const navItems = [
+  const [open, setOpen] = useState<boolean>(false);
+  const navItems: NavItem[] = [
     { id: 1, name: "Home", to: "/" },
     { id: 2, name: "Shop", to: "/" },
     { id: 3, name: "Pages", to: "/" },
@@ -26,9 +32,9 @@ export default function MenuItems() {
           <NavigationMenu>
             <NavigationMenuList>
               {navItems.map((item) => (
-                <NavigationMenuItem>
+                <NavigationMenuItem key={item.id}>
                   <NavigationMenuTrigger>
-                    <div key={item.id} className="flex gap-1 items-center">
+                    <div className="flex gap-1 items-center">
                       <NavLink
                         to={item.to}
                         className="text-neutral-500 hover:text-neutral-200"
