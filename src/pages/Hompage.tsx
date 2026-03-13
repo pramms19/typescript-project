@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import MenuItems from "@/components/MenuItems";
 import HeaderSection from "@/components/HeaderSection";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
+import TopCategory from "@/components/TopCategory";
 
 export default function Homepage(){
     return(
@@ -12,6 +13,7 @@ export default function Homepage(){
             <MenuItems/>
             <HeaderSection/>
             <FeaturedProducts/>
+            <TopCategory/>
         </div>
     )
 }
