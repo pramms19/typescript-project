@@ -4,12 +4,13 @@ import { Field } from "./ui/field";
 import { ButtonGroup } from "./ui/button-group";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
 
-// import { useCart } from "../store/CartStore";
-// import { useWishlist } from "../store/Wishlist";
+import { useCart } from "../store/CartStore";
+import { useWishlist } from "@/store/WishlistStore";
+
 
 export default function Navbar() {
-  //     const { totalCount } = useCart();
-  //   const {wishlist} = useWishlist();
+      const { totalCount } = useCart();
+    const {wishlist} = useWishlist();
 
   return (
     <div className="border-t border-neutral-200">
@@ -42,7 +43,7 @@ export default function Navbar() {
           <div className="relative flex items-center">
             <Heart size={28} strokeWidth={1} />
             <div className="absolute bottom-1/2 left-1/2 h-4 w-4 rounded-full bg-red-700 text-white text-xs text-center">
-              1{/* {wishlist.length} */}
+              {wishlist.length}
             </div>
           </div>
           <div className="text-neutral-400 text-2xl font-light">|</div>
@@ -50,7 +51,7 @@ export default function Navbar() {
             <div className="relative flex items-center">
               <Handbag size={28} strokeWidth={1} />
               <div className="absolute bottom-1/2 left-1/2 h-4 w-4 rounded-full bg-red-700 text-white text-xs text-center">
-                1{/* {totalCount} */}
+                {totalCount}
               </div>
             </div>
             <div className="hidden md:block flex-2">

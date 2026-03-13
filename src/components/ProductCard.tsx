@@ -1,6 +1,7 @@
 import { Handbag, Star, Heart, Eye } from "lucide-react";
 import { useCart } from "../store/CartStore";
 import { useWishlist } from "../store/WishlistStore";
+import { Card } from "./ui/card";
 
 interface Product{
     id: number;
@@ -19,11 +20,11 @@ export default function ProductCard({ product }:ProductCardProps) {
   const active = isWishlisted(product.id);
 
   return (
-    <div className="group relative border border-neutral-200 hover:border-primary hover:shadow-lg hover:shadow-hover rounded-sm flex flex-col items-center p-4">
+    <Card className="group relative border border-neutral-200 hover:border-primary hover:shadow-lg hover:shadow-hover rounded-sm flex flex-col items-center p-4">
       <img src={product.images} alt="apple" className="pb-2" />
       <div className="flex gap-5 md:gap-12 justify-between items-center">
         <div>
-          <div className="text-neutral-600 text-xs">{product.title}</div>
+          <div className="text-neutral-600 text-xs text-wrap">{product.title}</div>
           <div className="text-secondary text-lg font-medium">
             {product.price}
           </div>
@@ -54,6 +55,6 @@ export default function ProductCard({ product }:ProductCardProps) {
           </button>
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
