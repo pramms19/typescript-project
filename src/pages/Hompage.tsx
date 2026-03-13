@@ -6,6 +6,7 @@ import { FeaturedProducts } from "@/components/FeaturedProducts";
 import TopCategory from "@/components/TopCategory";
 import SaleSection from "@/components/SaleSection";
 import NewestProducts from "@/components/NewestProducts";
+import ClientTestimonial from "@/components/ClientTestimonial";
 
 export default function Homepage(){
     return(
@@ -18,6 +19,7 @@ export default function Homepage(){
             <TopCategory/>
             <SaleSection/>
             <NewestProducts/>
+            <ClientTestimonial/>
         </div>
     )
 }
