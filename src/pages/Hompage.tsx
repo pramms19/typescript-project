@@ -7,6 +7,9 @@ import TopCategory from "@/components/TopCategory";
 import SaleSection from "@/components/SaleSection";
 import NewestProducts from "@/components/NewestProducts";
 import ClientTestimonial from "@/components/ClientTestimonial";
+import SocialMedia from "@/components/SocialMedia";
+import EndingSection from "@/components/EndingSection";
+import Footer from "@/components/Footer";
 
 export default function Homepage(){
     return(
@@ -20,6 +23,9 @@ export default function Homepage(){
             <SaleSection/>
             <NewestProducts/>
             <ClientTestimonial/>
+            <SocialMedia/>
+            <EndingSection/>
+            <Footer/>
         </div>
     )
 }
