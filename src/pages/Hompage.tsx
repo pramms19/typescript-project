@@ -5,6 +5,7 @@ import HeaderSection from "@/components/HeaderSection";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import TopCategory from "@/components/TopCategory";
 import SaleSection from "@/components/SaleSection";
+import NewestProducts from "@/components/NewestProducts";
 
 export default function Homepage(){
     return(
@@ -16,6 +17,7 @@ export default function Homepage(){
             <FeaturedProducts/>
             <TopCategory/>
             <SaleSection/>
+            <NewestProducts/>
         </div>
     )
 }
