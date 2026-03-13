@@ -1,4 +1,4 @@
-// import DealsSection from "./DealsSection";
+import DealsSection from "./DealsSection";
 import {  useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
@@ -49,7 +49,7 @@ export function FeaturedProducts() {
       </div>
 
       {/* Hot Deals */}
-      {/* <DealsSection /> */}
+      <DealsSection />
     </div>
   );
 }

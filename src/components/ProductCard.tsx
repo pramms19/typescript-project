@@ -28,11 +28,11 @@ export default function ProductCard({ product }:ProductCardProps) {
             {product.price}
           </div>
           <div className="flex gap-1">
-            <Star size={10} className="fill-sale  text-sale" />
-            <Star size={10} className="fill-sale  text-sale" />
-            <Star size={10} className="fill-sale  text-sale" />
-            <Star size={10} className="fill-sale  text-sale" />
-            <Star size={10} className="fill-background text-background" />
+            <Star size={10} className="fill-chart-5  text-chart-5" />
+            <Star size={10} className="fill-chart-5  text-chart-5" />
+            <Star size={10} className="fill-chart-5  text-chart-5" />
+            <Star size={10} className="fill-chart-5  text-chart-5" />
+            <Star size={10} className="fill-neutral-500 text-neutral-500" />
           </div>
         </div>
         <button
