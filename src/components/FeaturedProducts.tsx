@@ -37,7 +37,7 @@ export function FeaturedProducts() {
   console.log("product", products);
   return (
     <div className="mt-60 md:mt-30 lg:mt-14 px-4 sm:px-6 lg:px-8 ">
-      <div className=" py-14 text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary text-center">
+      <div className=" py-14 text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary-foreground text-center">
         Feature Products
       </div>
 

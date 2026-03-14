@@ -80,7 +80,7 @@ export default function ClientTestimonial() {
   return (
     <div className="py-14">
       <div className="bg-muted px-4 sm:px-6 lg:px-8 py-14">
-        <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary pb-10 text-center">
+        <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary-foreground pb-10 text-center">
           Client Testimonial
         </div>
 
@@ -131,13 +131,13 @@ export default function ClientTestimonial() {
             </div>
           </div>
           <button
-            className="absolute top-1/2 -left-2 transform -translate-y-1/2 bg-neutral-200 hover:bg-primary text-secondary hover:text-white rounded-full p-2"
+            className="absolute top-1/2 -left-2 transform -translate-y-1/2 bg-rose-50 hover:bg-primary text-secondary hover:text-white rounded-full p-2"
             onClick={prevSlide}
           >
             <ArrowLeft />
           </button>
           <button
-            className="absolute top-1/2 -right-2 transform -translate-y-1/2 bg-neutral-200 hover:bg-primary text-secondary hover:text-white rounded-full p-2"
+            className="absolute top-1/2 -right-2 transform -translate-y-1/2 bg-rose-50 hover:bg-primary text-secondary hover:text-white rounded-full p-2"
             onClick={nextSlide}
           >
             <ArrowRight />

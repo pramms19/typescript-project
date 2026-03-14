@@ -35,7 +35,7 @@ function NewestProductsClient({ productsPromise }: NewestProductProps) {
   return (
     <div className="px-4 sm:px-6 lg:px-8 ">
       <div className="flex justify-between">
-        <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary pb-10">
+        <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary-foreground pb-10">
           Newest Products
         </div>
         <NavLink

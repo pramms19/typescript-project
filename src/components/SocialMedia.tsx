@@ -11,7 +11,7 @@ export default function SocialMedia() {
   ];
   return (
     <div className="px-4 sm:px-6 lg:px-8 ">
-      <div className="text-secondary text-2xl md:text-3xl font-semibold text-center">
+      <div className="text-secondary-foreground text-2xl md:text-3xl font-semibold text-center">
         Follow us on Instagram
       </div>
 

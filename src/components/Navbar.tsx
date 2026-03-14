@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between ">
         <div className="flex gap-2 items-center">
           {/* <img src="/assets/logo.png" alt="Logo" /> */}
-          <p className="font-semibold text-foreground text-2xl lg:text-3xl">Glow</p>
+          <p className="font-semibold text-secondary-foreground text-2xl lg:text-3xl">Glow</p>
         </div>
 
         <div className="hidden md:flex">

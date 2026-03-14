@@ -8,6 +8,7 @@
 :root {
   font-family: Poppins, Arial;
   --background: #faf7f5;
+  --section-background: #FFFAF9;
   --foreground: #1a1a1a;
   --card: #faf7f5;
   --card-foreground: #1a1a1a;
@@ -15,7 +16,7 @@
   --popover-foreground: #1a1a1a;
   --primary: #a50036;
   --primary-foreground: #ffffff;
-  --secondary: #ffccd3;
+  --secondary: #e74a36;
   --secondary-foreground: #4d0218;
   --muted: #f0ebe8;
   --muted-foreground: #57534e;

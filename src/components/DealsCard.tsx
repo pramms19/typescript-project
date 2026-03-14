@@ -21,11 +21,11 @@ export default function DealsCard({ product }: ProductCardProps) {
 
   return (
     <Card className="group relative border border-neutral-200 hover:border-primary hover:shadow-lg hover:shadow-hover rounded-sm flex items-center p-2">
-      <div className="flex justify-between content -center gap-5">
+      <div className="flex justify-between content-center gap-5">
         <div className="flex space-x-4 items-center">
           <img src={product.images} alt="image" className="h-20" />
           <div className="block hover:hidden">
-            <p className="text-neutral-600 text-xs">{product.title}</p>
+            <p className="text-neutral-600 text-xs line-clamp-1">{product.title}</p>
             <p className="text-secondary text-lg font-medium">
               {product.price}
             </p>
@@ -39,12 +39,12 @@ export default function DealsCard({ product }: ProductCardProps) {
           </div>
         </div>
       </div>
-      <div className="absolute right-6 hidden group-hover:block bg-background p-2">
-        <div className="flex justify-between content -center gap-5">
+      <div className="absolute right-6 hidden group-hover:block bg-background pb-2">
+        <div className="flex justify-between content-center gap-5">
           <div className="flex space-x-4 items-center">
             <img src={product.images} alt="image" className="h-20" />
             <div className="space-y-2">
-              <p className="text-primary text-xs text-wrap">{product.title}</p>
+              <p className="text-primary text-xs line-clamp-1">{product.title}</p>
               <div className="flex justify-between gap-2">
                 <button
                   onClick={() => addToCart(product)}

@@ -24,7 +24,7 @@ export default function MenuItems() {
   ];
 
   return (
-    <div className="bg-neutral-800 px-4 sm:px-6 lg:px-8 ">
+    <div className="bg-card-foreground px-4 sm:px-6 lg:px-8 ">
       <div className="h-14 max-w-7xl mx-auto px-4 flex items-center justify-between">
         {/* Desktop Menu */}
 

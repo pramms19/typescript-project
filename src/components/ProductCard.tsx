@@ -24,7 +24,7 @@ export default function ProductCard({ product }:ProductCardProps) {
       <img src={product.images} alt="apple" className="pb-2" />
       <div className="flex gap-5 md:gap-12 justify-between items-center">
         <div>
-          <div className="text-neutral-600 text-xs text-wrap">{product.title}</div>
+          <div className="text-neutral-600 text-xs line-clamp-1">{product.title}</div>
           <div className="text-secondary text-lg font-medium">
             {product.price}
           </div>

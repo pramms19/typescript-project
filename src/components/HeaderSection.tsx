@@ -44,7 +44,7 @@ export default function HeaderSection() {
           <div className="text-sm text-neutral-500">
             Free shipping on all your order. we deliver, you enjoy
           </div>
-          <Button size="lg" className="rounded-full flex gap-2 bg-primary mt-6 px-4 lg:px-5 py-2.5 text-sm lg:text-base font-medium text-white hover:bg-green-700">
+          <Button size="xl" className="rounded-full flex gap-2 bg-primary mt-6 px-4 lg:px-5 py-2.5 text-sm lg:text-base font-medium text-white hover:bg-secondary-foreground">
             Shop now <ArrowRight />
           </Button>
         </div>
