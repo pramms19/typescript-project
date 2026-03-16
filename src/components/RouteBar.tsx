@@ -14,7 +14,7 @@ export default function RouteBar() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/"><Home/></BreadcrumbLink>
+            <BreadcrumbLink href="/"><Home strokeWidth={1}/></BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

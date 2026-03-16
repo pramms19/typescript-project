@@ -35,7 +35,7 @@ export default function LocationBar() {
             <Button variant="link" size="xs" className="text-neutral-600 hover:text-primary">Sign In</Button>
           </NavLink>
           <span>/</span>
-          <NavLink to="/signup">
+          <NavLink to="/register">
            <Button variant="link" size="xs" className="text-neutral-600 hover:text-primary">Sign Up</Button>
           </NavLink>
         </div>

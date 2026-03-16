@@ -7,12 +7,12 @@ import { InputGroup, InputGroupAddon } from "./ui/input-group";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { NavLink } from "react-router-dom";
 
-export default function SignInCard() {
+export default function SignUpCard() {
   return (
     <div className="px-4 sm:px-6 lg:px-8 pt-14 flex justify-center items-center">
       <Card className="bg-white max-w-md min-w-sm shadow-sm">
         <CardTitle className="text-2xl font-semibold text-secondary-foreground text-center">
-          Sign In
+          Create Account
         </CardTitle>
         <CardContent>
           <form>
@@ -32,20 +32,22 @@ export default function SignInCard() {
                   </InputGroupAddon>
                 </InputGroup>
               </Field>
+              <Field>
+                <InputGroup>
+                  <Input placeholder="Confirm Password" required />
+                  <InputGroupAddon align="inline-end">
+                    <Eye />
+                  </InputGroupAddon>
+                </InputGroup>
+              </Field>
 
-              <div className="flex justify-between">
-                <div className="flex gap-1">
-                  <Checkbox
-                    id="terms-checkbox-basic"
-                    name="terms-checkbox-basic"
-                  />
-                  <div className="text-sm text-neutral-400 font-normal">
-                    Remember me
-                  </div>
-                </div>
-
+              <div className="flex gap-1">
+                <Checkbox
+                  id="terms-checkbox-basic"
+                  name="terms-checkbox-basic"
+                />
                 <div className="text-sm text-neutral-400 font-normal">
-                  Forgot Password
+                  Accept all Terms & Conditions
                 </div>
               </div>
 

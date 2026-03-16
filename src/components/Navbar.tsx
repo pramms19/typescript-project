@@ -13,7 +13,7 @@ export default function Navbar() {
     const {wishlist} = useWishlist();
 
   return (
-    <div className="border-t border-neutral-200">
+    <div className="border-t border-neutral-200 bg-white">
       <div className="px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between ">
         <div className="flex gap-2 items-center">
           {/* <img src="/assets/logo.png" alt="Logo" /> */}
