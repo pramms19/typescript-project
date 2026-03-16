@@ -20,7 +20,7 @@ export default function ProductCard({ product }:ProductCardProps) {
   const active = isWishlisted(product.id);
 
   return (
-    <Card className="group relative border border-neutral-200 hover:border-primary hover:shadow-lg hover:shadow-hover rounded-sm flex flex-col items-center p-4">
+    <Card className="group relative border border-neutral-200 hover:border-primary hover:shadow-lg hover:shadow-hover flex flex-col items-center p-4">
       <img src={product.images} alt="apple" className="pb-2" />
       <div className="flex gap-5 md:gap-12 justify-between items-center">
         <div>
