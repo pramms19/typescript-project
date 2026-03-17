@@ -13,14 +13,14 @@ export default function Navbar() {
     const {wishlist} = useWishlist();
 
   return (
-    <div className="border-t border-neutral-200 bg-white">
+    <div className="border-t border-neutral-200">
       <div className="px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between ">
         <div className="flex gap-2 items-center">
           {/* <img src="/assets/logo.png" alt="Logo" /> */}
           <p className="font-semibold text-secondary-foreground text-2xl lg:text-3xl">Glow</p>
         </div>
 
-        <div className="hidden md:flex">
+        <div className="hidden md:flex bg-white">
           <Field className="max-w-md">
             <ButtonGroup>
               <div className="flex gap-1">

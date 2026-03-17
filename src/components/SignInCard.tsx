@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 export default function SignInCard() {
   return (
     <div className="px-4 sm:px-6 lg:px-8 pt-14 flex justify-center items-center">
-      <Card className="bg-white max-w-md min-w-sm shadow-sm">
+      <Card className="bg-white max-w-md min-w-sm shadow-sm py-6">
         <CardTitle className="text-2xl font-semibold text-secondary-foreground text-center">
           Sign In
         </CardTitle>
