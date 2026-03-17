@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <div className="border-t border-neutral-200">
-      <div className="px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between ">
+      <div className="px-4 sm:px-6 lg:px-8 h-15 md:h-20 flex items-center justify-between ">
         <div className="flex gap-2 items-center">
           {/* <img src="/assets/logo.png" alt="Logo" /> */}
           <p className="font-semibold text-secondary-foreground text-2xl lg:text-3xl">Glow</p>

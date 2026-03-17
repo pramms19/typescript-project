@@ -10,8 +10,8 @@ import { NavLink } from "react-router-dom";
 export default function SignInCard() {
   return (
     <div className="px-4 sm:px-6 lg:px-8 pt-14 flex justify-center items-center">
-      <Card className="bg-white max-w-md min-w-sm shadow-sm py-6">
-        <CardTitle className="text-2xl font-semibold text-secondary-foreground text-center">
+      <Card className="bg-white max-w-sm md:max-w-md min-w-xs md:min-w-sm shadow-sm py-6">
+        <CardTitle className="text-xl md:text-2xl font-semibold text-secondary-foreground text-center">
           Sign In
         </CardTitle>
         <CardContent>
@@ -21,12 +21,12 @@ export default function SignInCard() {
                 <Input
                   placeholder="Email"
                   required
-                  className="border rounded-sm"
+                  className="border rounded-sm text-xs md:text-sm"
                 />
               </Field>
               <Field>
                 <InputGroup>
-                  <Input placeholder="Password" required />
+                  <Input placeholder="Password" required className="text-xs md:text-sm"/>
                   <InputGroupAddon align="inline-end">
                     <Eye />
                   </InputGroupAddon>
@@ -39,22 +39,22 @@ export default function SignInCard() {
                     id="terms-checkbox-basic"
                     name="terms-checkbox-basic"
                   />
-                  <div className="text-sm text-neutral-400 font-normal">
+                  <div className="text-xs md:text-sm text-neutral-400 font-normal">
                     Remember me
                   </div>
                 </div>
 
-                <div className="text-sm text-neutral-400 font-normal">
+                <div className="text-xs md:text-sm text-neutral-400 font-normal">
                   Forgot Password
                 </div>
               </div>
 
               <Field orientation="horizontal">
-                <Button className="w-full rounded-full bg-primary text-sm lg:text-base font-medium text-white hover:bg-secondary-foreground">
+                <Button className="w-full rounded-full bg-primary text-xs md:text-sm lg:text-base font-medium text-white hover:bg-secondary-foreground">
                   Login
                 </Button>
               </Field>
-              <div className="flex gap-1 justify-center text-sm">
+              <div className="flex gap-1 justify-center text-xs md:text-sm">
                 <p className="text-neutral-400">Don't have an account? </p>{" "}
                 <NavLink to="/register">
                   <p className="text-secondary-foreground font-medium">

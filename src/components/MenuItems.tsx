@@ -25,7 +25,7 @@ export default function MenuItems() {
 
   return (
     <div className="bg-card-foreground px-4 sm:px-6 lg:px-8 ">
-      <div className="h-14 max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <div className="h-12 md:h-14 max-w-7xl mx-auto px-4 flex items-center justify-between">
         {/* Desktop Menu */}
 
         <div className="hidden md:flex space-x-4 items-center text-sm font-medium">

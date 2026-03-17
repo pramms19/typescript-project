@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const UserSchema = z.object({
   email: z.email("Invalid email"),
@@ -26,7 +27,7 @@ export default function SignUpCard() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState
   } = useForm<UserFormData>({
     resolver: zodResolver(UserSchema),
   });
@@ -49,25 +50,23 @@ export default function SignUpCard() {
       },
     };
 
-    try{
-        const{data}= await axios.request(options);
-        console.log("Success:", data);
-        alert("Account created successfully!");
-    } catch (error: any){
-        console.error("Error:", error);
-        setServerError(error.response?.data?.message || "Something went wrong!") 
+    try {
+      const { data } = await axios.request(options);
+      toast.success("Account Created Successfully!",{ position: "top-center" });
+      console.log("Success:", data);
+    } catch (error: any) {
+      console.error("Error:", error);
+      setServerError(error.response?.data?.message || "Something went wrong!");
     }
   };
-
+console.log( formState.isSubmitting)
   return (
     <div className="px-4 sm:px-6 lg:px-8 pt-14 flex justify-center items-center">
-      <Card className="bg-white max-w-md min-w-sm shadow-sm py-6">
-        <CardTitle className="text-2xl font-semibold text-secondary-foreground text-center">
+      <Card className="bg-white max-w-sm md:max-w-md min-w-xs md:min-w-sm shadow-sm py-6">
+        <CardTitle className="text-xl md:text-2xl font-semibold text-secondary-foreground text-center">
           Create Account
         </CardTitle>
         <CardContent>
-             {serverError && <p className="text-red-600 text-center mb-4 text-sm">{serverError}</p>}
-          
           <form onSubmit={handleSubmit(onSubmit)}>
             <FieldGroup>
               <Field>
@@ -75,22 +74,22 @@ export default function SignUpCard() {
                   {...register("email")}
                   placeholder="Email"
                   required
-                  className="border rounded-sm"
+                  className="border rounded-sm text-xs md:text-sm"
                 />
               </Field>
-              {errors?.email?.message && (
-                <p className="text-red-700 mb-4">{errors.email.message}</p>
+              {formState.errors?.email?.message && (
+                <p className="text-red-700 mb-4">{formState.errors.email.message}</p>
               )}
               <Field>
                 <Input
                   {...register("username")}
                   placeholder="Username"
                   required
-                  className="border rounded-sm"
+                  className="border rounded-sm text-xs md:text-sm"
                 />
               </Field>
-              {errors?.username?.message && (
-                <p className="text-red-700 mb-4">{errors.username.message}</p>
+              {formState.errors?.username?.message && (
+                <p className="text-red-700 mb-4">{formState.errors.username.message}</p>
               )}
 
               <Field>
@@ -99,14 +98,15 @@ export default function SignUpCard() {
                     {...register("password")}
                     placeholder="Password"
                     required
+                    className="text-xs md:text-sm"
                   />
                   <InputGroupAddon align="inline-end">
                     <Eye />
                   </InputGroupAddon>
                 </InputGroup>
               </Field>
-              {errors?.password?.message && (
-                <p className="text-red-700 mb-4">{errors.password.message}</p>
+              {formState.errors?.password?.message && (
+                <p className="text-red-700 mb-4">{formState.errors.password.message}</p>
               )}
 
               <Field>
@@ -115,14 +115,15 @@ export default function SignUpCard() {
                     {...register("password")}
                     placeholder="Confirm Password"
                     required
+                    className="text-xs md:text-sm"
                   />
                   <InputGroupAddon align="inline-end">
                     <Eye />
                   </InputGroupAddon>
                 </InputGroup>
               </Field>
-              {errors?.password?.message && (
-                <p className="text-red-700 mb-4">{errors.password.message}</p>
+              {formState.errors?.password?.message && (
+                <p className="text-red-700 mb-4">{formState.errors.password.message}</p>
               )}
 
               <div className="flex gap-1">
@@ -130,20 +131,27 @@ export default function SignUpCard() {
                   id="terms-checkbox-basic"
                   name="terms-checkbox-basic"
                 />
-                <div className="text-sm text-neutral-400 font-normal">
+                <div className="text-xs md:text-sm text-neutral-400 font-normal">
                   Accept all Terms & Conditions
                 </div>
               </div>
 
+              {serverError && (
+                <p className="text-red-600 text-center mb-4 text-xs md:text-sm">
+                  {serverError}
+                </p>
+              )}
+
               <Field orientation="horizontal">
                 <Button
                   onClick={handleSubmit(onSubmit)}
-                  className="w-full rounded-full bg-primary text-sm lg:text-base font-medium text-white hover:bg-secondary-foreground"
+                  type="submit"
+                  className="w-full rounded-full bg-primary text-xs md:text-sm lg:text-base font-medium text-white hover:bg-secondary-foreground"
                 >
                   Create Account
                 </Button>
               </Field>
-              <div className="flex gap-1 justify-center text-sm">
+              <div className="flex gap-1 justify-center text-xs md:text-sm">
                 <p className="text-neutral-400">Already have an account? </p>{" "}
                 <NavLink to="/login">
                   <p className="text-secondary-foreground font-medium">Login</p>
