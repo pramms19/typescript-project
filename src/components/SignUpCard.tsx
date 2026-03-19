@@ -5,7 +5,7 @@ import { Field, FieldGroup } from "./ui/field";
 import { Input } from "./ui/input";
 import { InputGroup, InputGroupAddon } from "./ui/input-group";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as z from "zod";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,8 +31,8 @@ const UserSchema = z
 type UserFormData = z.infer<typeof UserSchema>;
 
 export default function SignUpCard() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-
   const [serverError, setServerError] = useState<string | null>(null);
 
   const { register, handleSubmit, control, formState } = useForm<UserFormData>({
@@ -41,7 +41,7 @@ export default function SignUpCard() {
       terms: false,
     },
   });
-
+  
   const onSubmit = async (formData: UserFormData) => {
     setServerError(null);
     // remove unnecessary fields
@@ -64,10 +64,12 @@ export default function SignUpCard() {
 
     try {
       const { data } = await axios.request(options);
+      
       toast.success("Account Created Successfully!", {
         position: "top-center",
       });
       console.log("Success:", data);
+      navigate("/login");
     } catch (error: any) {
       console.error("Error:", error);
       setServerError(error.response?.data?.message || "Something went wrong!");
@@ -114,13 +116,16 @@ export default function SignUpCard() {
               <Field>
                 <InputGroup>
                   <Input
-                  type={showPassword? "text":"password"}
+                    type={showPassword ? "text" : "password"}
                     {...register("password")}
                     placeholder="Password"
                     required
                     className="text-xs md:text-sm"
                   />
-                  <InputGroupAddon align="inline-end" onClick={()=> setShowPassword(prev=> !prev)}>
+                  <InputGroupAddon
+                    align="inline-end"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  >
                     <Eye />
                   </InputGroupAddon>
                 </InputGroup>
@@ -178,9 +183,9 @@ export default function SignUpCard() {
 
               <Field orientation="horizontal">
                 <Button
-                //   onClick={handleSubmit(onSubmit)}
+                  //   onClick={handleSubmit(onSubmit)}
                   type="submit"
-                   disabled={formState.isSubmitting}
+                  disabled={formState.isSubmitting}
                   className="w-full rounded-full bg-primary text-xs md:text-sm lg:text-base font-medium text-white hover:bg-secondary-foreground"
                 >
                   {formState.isSubmitting ? "Creating..." : "Create Account"}

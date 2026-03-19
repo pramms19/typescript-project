@@ -5,13 +5,14 @@ import { Field, FieldGroup } from "./ui/field";
 import { Input } from "./ui/input";
 import { InputGroup, InputGroupAddon } from "./ui/input-group";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as z from "zod";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useAuthStore } from "@/store/AuthStore";
 
 const LoginSchema = z.object({
   email: z.string().email("Invalid email"),
@@ -24,6 +25,7 @@ const LoginSchema = z.object({
 type LoginFormData = z.infer<typeof LoginSchema>;
 
 export default function SignInCard() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const [serverError, setServerError] = useState<string | null>(null);
@@ -33,6 +35,7 @@ export default function SignInCard() {
       resolver: zodResolver(LoginSchema),
     },
   );
+  const login = useAuthStore((state) => state.login);
 
   const onSubmit = async (formData: LoginFormData) => {
     setServerError(null);
@@ -51,8 +54,15 @@ export default function SignInCard() {
 
     try {
       const { data } = await axios.request(options);
+      // Extract user and token from API response
+      const { user, accessToken } = data.data;
+      // Save to Zustand store
+      login(user, accessToken);
+
       toast.success("Logged In Successfully!", { position: "top-center" });
       console.log("Success:", data);
+
+      navigate("/userDashboard");
     } catch (error: any) {
       console.error("Error:", error);
       setServerError(error.response?.data?.message || "Something went wrong!");
