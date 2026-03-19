@@ -1,18 +1,7 @@
+import { useCart } from "@/store/CartStore";
+import { useWishlist } from "@/store/WishlistStore";
 import { Handbag, Star, Heart, Eye } from "lucide-react";
-import { useCart } from "../store/CartStore";
-import { useWishlist } from "../store/WishlistStore";
-import { Card } from "./ui/card";
-
-interface Product{
-    id: number;
-    images:string;
-    title:string;
-    price:string;
-}
-
-interface ProductCardProps{
-    product:Product
- }
+import { Card } from "../ui/card";
 
 export default function DealsCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();

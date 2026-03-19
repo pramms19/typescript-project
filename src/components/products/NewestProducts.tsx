@@ -1,19 +1,9 @@
 import { NavLink } from "react-router-dom";
-import ProductCard from "./ProductCard";
 import { ArrowRight } from "lucide-react";
 import { Suspense, use } from "react";
-import { fetchProducts } from "../actions/fetchProducts";
-import { ProductSkeleton } from "./ProductSkeletonCard";
-
-interface Product {
-  id: number;
-  images: string;
-  title: string;
-  price: string;
-}
-interface ProductResponse {
-  products: Product[];
-}
+import { fetchProducts } from "../../actions/fetchProducts";
+import { ProductSkeleton } from "../skeleton/ProductSkeletonCard";
+import ProductCard from "./ProductCard";
 
 export default function NewestProducts() {
   const productsPromise = fetchProducts(5);

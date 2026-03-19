@@ -1,12 +1,10 @@
 import { Heart, Handbag, Search } from "lucide-react";
-import { Button } from "./ui/button";
-import { Field } from "./ui/field";
-import { ButtonGroup } from "./ui/button-group";
-import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
-
-import { useCart } from "../store/CartStore";
+import { Button } from "../ui/button";
+import { Field } from "../ui/field";
+import { ButtonGroup } from "../ui/button-group";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "../ui/input-group";
 import { useWishlist } from "@/store/WishlistStore";
-
+import { useCart } from "@/store/CartStore";
 
 export default function Navbar() {
       const { totalCount } = useCart();

@@ -7,5 +7,5 @@ export default function PrivateRoute() {
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
-  return <Outlet/>
+  return <Outlet />;
 }

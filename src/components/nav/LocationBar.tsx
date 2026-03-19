@@ -4,7 +4,7 @@ import {
   NativeSelect,
   NativeSelectOption,
 } from "@/components/ui/native-select";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export default function LocationBar() {
   return (

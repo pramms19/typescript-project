@@ -1,16 +1,8 @@
-import DealsSection from "./DealsSection";
-import {  useEffect, useState } from "react";
+import DealsSection from "../deals/DealsSection";
+import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
-interface Product{
-    id: number;
-    images:string;
-    title:string;
-    price:string;
-}
-
 export function FeaturedProducts() {
- 
   const [products, setProducts] = useState<Product[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<boolean>(false);

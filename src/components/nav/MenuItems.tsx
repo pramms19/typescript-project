@@ -6,13 +6,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "./ui/navigation-menu";
-
-interface NavItem {
-  id: number;
-  name: string;
-  to: string;
-}
+} from "../ui/navigation-menu";
 
 export default function MenuItems() {
   const [open, setOpen] = useState<boolean>(false);

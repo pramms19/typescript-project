@@ -1,20 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import DealsCard from "./DealsCard";
 import { Suspense, use } from "react";
-import { fetchProducts } from "../actions/fetchProducts";
-import { DealsSkeleton } from "./DealsSkeletonCard";
-import { Button } from "./ui/button";
-
-interface Product {
-  id: number;
-  images: string;
-  title: string;
-  price: string;
-}
-
-interface ProductResponse {
-  products: Product[];
-}
+import { fetchProducts } from "../../actions/fetchProducts";
+import { DealsSkeleton } from "../skeleton/DealsSkeletonCard";
+import { Button } from "../ui/button";
 
 export default function DealsSection() {
   const productsPromise = fetchProducts(3);
@@ -60,11 +49,12 @@ function NewDealsSection({ productsPromise }: NewDealsSectionProps) {
               SUMMER SALE
             </div>
 
-            <div className="text-primary text-3xl font-semibold">
-              75% Off
-            </div>
+            <div className="text-primary text-3xl font-semibold">75% Off</div>
 
-            <Button size="xl" className="rounded-full flex gap-2 bg-white mt-4 px-4 lg:px-5 py-2.5 text-sm lg:text-base font-medium text-primary hover:bg-background">
+            <Button
+              size="xl"
+              className="rounded-full flex gap-2 bg-white mt-4 px-4 lg:px-5 py-2.5 text-sm lg:text-base font-medium text-primary hover:bg-background"
+            >
               Shop now <ArrowRight />
             </Button>
           </div>

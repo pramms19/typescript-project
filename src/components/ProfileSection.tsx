@@ -9,8 +9,10 @@ import {
 import { Card, CardTitle } from "./ui/card";
 import { useAuthStore } from "@/store/AuthStore";
 import { useNavigate } from "react-router-dom";
-import { Suspense, use, useMemo } from "react";
+import { Suspense, use, useMemo, useState } from "react";
 import { fetchUser } from "@/actions/fetchUser";
+import { Dialog, DialogClose, DialogContent, DialogTitle } from "./ui/dialog";
+import { Button } from "./ui/button";
 
 export default function ProfileSection() {
   const userPromise = useMemo(() => fetchUser(), []);
@@ -32,6 +34,8 @@ function ProfileClient({ userPromise }: { userPromise: Promise<any> }) {
     navigate("/login");
   };
 
+  const [open, setOpen] = useState(false);
+
   const navItems = [
     { id: 1, icon: <LayoutDashboard size={20} />, title: "Dashboard" },
     { id: 2, icon: <RefreshCw size={20} />, title: "Order History" },
@@ -42,7 +46,7 @@ function ProfileClient({ userPromise }: { userPromise: Promise<any> }) {
       id: 6,
       icon: <LogOut size={20} />,
       title: "Log-out",
-      action: handleLogout,
+      action: () => setOpen(true),
     },
   ];
 
@@ -55,8 +59,11 @@ function ProfileClient({ userPromise }: { userPromise: Promise<any> }) {
         <div>
           {navItems.map((item) => {
             return (
-               
-              <div key={item.id} className="flex gap-2 hover:bg-muted p-2" onClick={item.action?item.action : undefined}>
+              <div
+                key={item.id}
+                className="flex gap-2 hover:bg-muted p-2"
+                onClick={item.action ? item.action : undefined}
+              >
                 <div className="text-muted-foreground">{item.icon}</div>
                 <div>{item.title}</div>
               </div>
@@ -64,6 +71,17 @@ function ProfileClient({ userPromise }: { userPromise: Promise<any> }) {
           })}
         </div>
       </Card>
+
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="sm:max-w-xs">
+          <DialogTitle>Are you sure you want to Logout?</DialogTitle>
+          <DialogClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DialogClose>
+          <Button onClick={handleLogout}>Logout</Button>
+        </DialogContent>
+      </Dialog>
+
       {/* max-w-md min-w-sm */}
       <Card className="">
         <div className="place-items-center space-y-2 p-2">

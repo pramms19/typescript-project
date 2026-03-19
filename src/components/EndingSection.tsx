@@ -1,7 +1,7 @@
-import { Field } from "./ui/field";
-import { ButtonGroup } from "./ui/button-group";
-import { InputGroupInput } from "./ui/input-group";
 import { Button } from "./ui/button";
+import { ButtonGroup } from "./ui/button-group";
+import { Field } from "./ui/field";
+import { InputGroupInput } from "./ui/input-group";
 
 export default function EndingSection() {
   return (
@@ -27,7 +27,7 @@ export default function EndingSection() {
           <ButtonGroup className="flex justify-between [--radius:9999rem]">
             <div className="flex gap-1">
               <InputGroupInput
-              className="text-xs md:text-sm"
+                className="text-xs md:text-sm"
                 id="inline-start-input"
                 placeholder="Your Email Address"
               />
