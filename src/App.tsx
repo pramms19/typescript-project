@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import UserDashboard from "./pages/UserDashboard";
 import PrivateRoute from "./components/layout/PrivateRoute";
 import Layout from "./components/layout/Layout";
+import Wishlist from "./pages/Wishlist";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route element={<PrivateRoute />}>
             <Route path="/userDashboard" element={<UserDashboard />} />
           </Route>
+          <Route path="/wishlist" element={<Wishlist />} />
         </Route>
       </Routes>
     </BrowserRouter>

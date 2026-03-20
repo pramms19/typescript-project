@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { Button } from "./ui/button";
 import { ButtonGroup } from "./ui/button-group";
 import { Field } from "./ui/field";
@@ -10,7 +11,7 @@ export default function EndingSection() {
         <div className="flex gap-2 items-center">
           {/* <img src="/assets/logo.png" alt="Logo" /> */}
           <p className="font-semibold text-secondary-foreground text-xl md:text-3xl">
-            Glow
+            <NavLink to="/">Glow</NavLink>
           </p>
         </div>
 

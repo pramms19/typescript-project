@@ -2,20 +2,27 @@ import { Heart, Handbag, Search } from "lucide-react";
 import { Button } from "../ui/button";
 import { Field } from "../ui/field";
 import { ButtonGroup } from "../ui/button-group";
-import { InputGroup, InputGroupAddon, InputGroupInput } from "../ui/input-group";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "../ui/input-group";
 import { useWishlist } from "@/store/WishlistStore";
 import { useCart } from "@/store/CartStore";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
-      const { totalCount } = useCart();
-    const {wishlist} = useWishlist();
+  const { totalCount } = useCart();
+  const { wishlist } = useWishlist();
 
   return (
     <div className="border-t border-neutral-200">
       <div className="px-4 sm:px-6 lg:px-8 h-15 md:h-20 flex items-center justify-between ">
         <div className="flex gap-2 items-center">
           {/* <img src="/assets/logo.png" alt="Logo" /> */}
-          <p className="font-semibold text-secondary-foreground text-2xl lg:text-3xl">Glow</p>
+          <p className="font-semibold text-secondary-foreground text-2xl lg:text-3xl">
+            <NavLink to="/">Glow</NavLink>
+          </p>
         </div>
 
         <div className="hidden md:flex bg-white">
@@ -39,7 +46,7 @@ export default function Navbar() {
 
         <div className="flex gap-1 items-center">
           <div className="relative flex items-center">
-            <Heart size={28} strokeWidth={1} />
+            <NavLink to="/wishlist"><Heart size={28} strokeWidth={1} /></NavLink>
             <div className="absolute bottom-1/2 left-1/2 h-4 w-4 rounded-full bg-red-700 text-white text-xs text-center">
               {wishlist.length}
             </div>
