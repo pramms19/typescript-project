@@ -9,13 +9,14 @@ import {
 import { Card, CardTitle } from "./ui/card";
 import { useAuthStore } from "@/store/AuthStore";
 import { useNavigate } from "react-router-dom";
-import { Suspense, use, useMemo, useState } from "react";
+import { Suspense, use, useState } from "react";
 import { fetchUser } from "@/actions/fetchUser";
 import { Dialog, DialogClose, DialogContent, DialogTitle } from "./ui/dialog";
 import { Button } from "./ui/button";
 
 export default function ProfileSection() {
-  const userPromise = useMemo(() => fetchUser(), []);
+  //   const userPromise = useMemo(() => fetchUser(), []);
+  const userPromise = fetchUser();
 
   return (
     <Suspense fallback={<div className="p-8">Loading Profile...</div>}>
@@ -24,7 +25,11 @@ export default function ProfileSection() {
   );
 }
 
-function ProfileClient({ userPromise }: { userPromise: Promise<any> }) {
+interface UserDataProps {
+  userPromise: Promise<User>;
+}
+
+function ProfileClient({ userPromise }: UserDataProps) {
   const userData = use(userPromise);
   const logout = useAuthStore((state) => state.logout);
   const navigate = useNavigate();
@@ -73,20 +78,26 @@ function ProfileClient({ userPromise }: { userPromise: Promise<any> }) {
       </Card>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="sm:max-w-xs">
-          <DialogTitle>Are you sure you want to Logout?</DialogTitle>
+        <DialogContent className="max-w-xs">
+          <DialogTitle className="text-center text-sm md:text-base">
+            Are you sure you want to Logout?
+          </DialogTitle>
           <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
+            <Button variant="outline" className="text-xs md:text-sm">
+              Cancel
+            </Button>
           </DialogClose>
-          <Button onClick={handleLogout}>Logout</Button>
+          <Button onClick={handleLogout} className="text-xs md:text-sm">
+            Logout
+          </Button>
         </DialogContent>
       </Dialog>
 
       {/* max-w-md min-w-sm */}
-      <Card className="">
+      <Card>
         <div className="place-items-center space-y-2 p-2">
           <img
-            src={userData?.avatar?.url}
+            src={userData?.avatar?.url || "placeholder.jpg"}
             alt="user"
             className="rounded-full h-20"
           />

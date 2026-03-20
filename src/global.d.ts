@@ -20,16 +20,19 @@ interface ProductResponse {
 }
 
 interface User {
-    id:string;
+  _id:string;
+  avatar: {
+    url: string;
+    lo;calPath:string
+  }
   username: string;
   email: string;
+  role: string;
+  phoneNumber: string;
 }
 
-interface AuthState {
-  user: User | null;
-  token: string | null;
-  isAuthenticated: boolean;
-  login: (user: User, token: string) => void;
-  logout: () => void;
+interface UserResponse {
+    users: User[];
 }
+
 
