@@ -10,7 +10,7 @@ export default function Footer() {
             Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis
             dui, eget bibendum magna congue nec.
           </p>
-          <div className="flex gap-3  justify-center lg:justify-start text-sm lg:text-lg">
+          <div className="flex gap-3  justify-center lg:justify-start text-xs md:text-sm">
             <p className="text-white">(219) 555-0114</p>
             <p className="text-neutral-500">or</p>
             <p className="text-white">proxy@gmail.com</p>

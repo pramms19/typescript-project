@@ -6,91 +6,81 @@ import {
   TableHeader,
   TableRow,
 } from "./ui/table";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { MoreHorizontalIcon, X } from "lucide-react";
+import { X } from "lucide-react";
+import { useWishlist } from "@/store/WishlistStore";
+import { useCart } from "@/store/CartStore";
+import { toast } from "sonner";
 
 export default function WishlistSection() {
-    
-  return (
-    <div className="px-4 sm:px-6 lg:px-8 pt-8">
-      <div className="text-center text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary-foreground pb-4">My Wishlist</div>
+  const { wishlist, removeWishlist } = useWishlist();
+  const { addToCart } = useCart();
 
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Product</TableHead>
-            <TableHead>Price</TableHead>
-            <TableHead className="text-right">Stock Status</TableHead>
-            <TableHead></TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          <TableRow>
-            <TableCell className="font-medium">Wireless Mouse</TableCell>
-            <TableCell>$29.99</TableCell>
-            <TableCell className="text-center">
-              <div className="bg-accent rounded-full text-primary text-xs py-1 m-4">
-                In Stock
-              </div>
-            </TableCell>
-            <TableCell className="space-x-2">
-                <Button className="rounded-full px-4">Add to Cart</Button>
-                <button className="rounded-full bg-muted hover:bg-secondary-foreground text-secondary-foreground hover:text-white p-1"><X size={12}/></button>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className="font-medium">Mechanical Keyboard</TableCell>
-            <TableCell>$129.99</TableCell>
-            <TableCell className="text-right">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon" className="size-8">
-                    <MoreHorizontalIcon/>
-                    <span className="sr-only">Open menu</span>
+  return (
+    <div className="px-4 sm:px-6 lg:px-8">
+      <div className="text-center text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary-foreground py-8">
+        My Wishlist
+      </div>
+      {wishlist.length === 0 ? (
+        <div className="text-center text-muted-foreground py-10">Your Wishlist is Empty</div>
+      ) : (
+        <Table className="border border-muted">
+          <TableHeader>
+            <TableRow className="text-base">
+              <TableHead>Product</TableHead>
+              <TableHead>Price</TableHead>
+              <TableHead className="text-center">Stock Status</TableHead>
+              <TableHead></TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {wishlist.map((product) => (
+              <TableRow key={product.id}>
+                <TableCell className="text-sm">
+                  <div className="flex items-center gap-2 text-wrap">
+                    <img
+                      src={product.images}
+                      alt={product.title}
+                      className="h-20"
+                    />
+                    {product.title}
+                  </div>
+                </TableCell>
+                <TableCell>{product.price}</TableCell>
+                <TableCell className="text-center">
+                  <div className="bg-accent rounded-full text-primary text-xs p-1 m-4">
+                    In Stock
+                  </div>
+                </TableCell>
+                <TableCell className="text-right space-x-4">
+                  <Button
+                    className="rounded-full px-4"
+                    onClick={() => {
+                      addToCart(product);
+                      toast.success("Added to Cart", {
+                        position: "top-center",
+                      });
+                    }}
+                  >
+                    Add to Cart
                   </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem>Edit</DropdownMenuItem>
-                  <DropdownMenuItem>Duplicate</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem variant="destructive">
-                    Delete
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className="font-medium">USB-C Hub</TableCell>
-            <TableCell>$49.99</TableCell>
-            <TableCell className="text-right">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon" className="size-8">
-                    <MoreHorizontalIcon/>
-                    <span className="sr-only">Open menu</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem>Edit</DropdownMenuItem>
-                  <DropdownMenuItem>Duplicate</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem variant="destructive">
-                    Delete
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
+                  <button
+                    className="rounded-full bg-muted hover:bg-secondary-foreground text-secondary-foreground hover:text-white p-1"
+                    onClick={() => {
+                      removeWishlist(product.id);
+                      toast.success("Removed from Wishlist", {
+                        position: "top-center",
+                      });
+                    }}
+                  >
+                    <X size={12} />
+                  </button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      )}
     </div>
   );
 }

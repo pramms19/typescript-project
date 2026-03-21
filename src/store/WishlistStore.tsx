@@ -22,6 +22,7 @@ interface WishlistContextType {
   wishlist: WishlistItem[];
   totalCount: number;
   addToWishlist: (product: Product) => void;
+  removeWishlist: (id: number) => void;
   isWishlisted: (id: number) => boolean;
 }
 const WishlistContext = createContext<WishlistContextType | undefined>(
@@ -65,11 +66,15 @@ export const WishlistProvider = ({ children }: { children: ReactNode }) => {
   };
   const totalCount = wishlist.reduce((total, item) => total + item.quantity, 0);
 
+  const removeWishlist = (id: number) => {
+    setWishlist((prev) => prev.filter((item) => item.id !== id));
+  };
   const value = useMemo(
     () => ({
       wishlist,
       totalCount,
       addToWishlist,
+      removeWishlist,
       isWishlisted,
     }),
     [wishlist, totalCount],
