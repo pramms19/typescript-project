@@ -6,6 +6,7 @@ import UserDashboard from "./pages/UserDashboard";
 import PrivateRoute from "./components/layout/PrivateRoute";
 import Layout from "./components/layout/Layout";
 import Wishlist from "./pages/Wishlist";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/userDashboard" element={<UserDashboard />} />
           </Route>
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>
     </BrowserRouter>

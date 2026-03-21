@@ -54,7 +54,7 @@ export default function Navbar() {
           <div className="text-neutral-400 text-2xl font-light">|</div>
           <div className="flex gap-2">
             <div className="relative flex items-center">
-              <Handbag size={28} strokeWidth={1} />
+              <NavLink to="/cart"><Handbag size={28} strokeWidth={1} /></NavLink>
               <div className="absolute bottom-1/2 left-1/2 h-4 w-4 rounded-full bg-red-700 text-white text-xs text-center">
                 {totalCount}
               </div>
