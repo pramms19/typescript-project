@@ -7,7 +7,7 @@ import {
   TableRow,
 } from "./ui/table";
 import { Button } from "./ui/button";
-import { X } from "lucide-react";
+import { Handbag, X } from "lucide-react";
 import { useWishlist } from "@/store/WishlistStore";
 import { useCart } from "@/store/CartStore";
 import { toast } from "sonner";
@@ -26,22 +26,22 @@ export default function WishlistSection() {
       ) : (
         <Table className="border border-muted">
           <TableHeader>
-            <TableRow className="text-base">
+            <TableRow className="text-sm md:text-base">
               <TableHead>Product</TableHead>
               <TableHead>Price</TableHead>
               <TableHead className="text-center">Stock Status</TableHead>
               <TableHead></TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>
+          <TableBody className="text-xs md:text-sm">
             {wishlist.map((product) => (
               <TableRow key={product.id}>
-                <TableCell className="text-sm">
+                <TableCell>
                   <div className="flex items-center gap-2 text-wrap">
                     <img
                       src={product.images}
                       alt={product.title}
-                      className="h-20"
+                      className="h-12 md:h-20"
                     />
                     {product.title}
                   </div>
@@ -52,9 +52,10 @@ export default function WishlistSection() {
                     In Stock
                   </div>
                 </TableCell>
-                <TableCell className="text-right space-x-4">
-                  <Button
-                    className="rounded-full px-4"
+                <TableCell className="text-right space-x-1 md:space-x-4">
+                  <div className="flex items-center gap-2">
+                    <Button
+                    className="rounded-full px-2 md:px-4 text-xs md:text-sm"
                     onClick={() => {
                       addToCart(product);
                       toast.success("Added to Cart", {
@@ -62,7 +63,8 @@ export default function WishlistSection() {
                       });
                     }}
                   >
-                    Add to Cart
+                    <div className="hidden md:block">Add to Cart</div>
+                    <Handbag size={8} strokeWidth={1} className="block md:hidden"/>
                   </Button>
                   <button
                     className="rounded-full bg-muted hover:bg-secondary-foreground text-secondary-foreground hover:text-white p-1"
@@ -73,8 +75,9 @@ export default function WishlistSection() {
                       });
                     }}
                   >
-                    <X size={12} />
+                    <X className="h-2 md:h-3 w-2 md:w-3" />
                   </button>
+                  </div>
                 </TableCell>
               </TableRow>
             ))}

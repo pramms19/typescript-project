@@ -45,11 +45,11 @@ export default function CartSection() {
           Your Cart is Empty
         </div>
       ) : (
-        <div className="flex justify-between">
-          <div className="min-w-3xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8 place-items-stretch">
+          <div className="col-span-2">
             <Table className="border border-muted">
               <TableHeader>
-                <TableRow className="text-base">
+                <TableRow className="text-sm md:text-base">
                   <TableHead>Product</TableHead>
                   <TableHead>Price</TableHead>
                   <TableHead className="text-center">Quantity</TableHead>
@@ -57,15 +57,15 @@ export default function CartSection() {
                   <TableHead></TableHead>
                 </TableRow>
               </TableHeader>
-              <TableBody>
+              <TableBody className="text-xs md:text-sm">
                 {cartItems.map((item) => (
                   <TableRow key={item.id}>
-                    <TableCell className="text-sm">
+                    <TableCell>
                       <div className="flex items-center gap-2 text-wrap">
                         <img
                           src={item.images}
                           alt={item.title}
-                          className="h-20"
+                          className="h-12 md:h-20"
                         />
                         {item.title}
                       </div>
@@ -78,14 +78,14 @@ export default function CartSection() {
                             onClick={() => updateQuantity(item.id, -1)}
                             className="rounded-full bg-muted hover:bg-secondary-foreground text-secondary-foreground hover:text-white p-1"
                           >
-                            <Minus size={12} />
+                            <Minus className="h-2 md:h-3 w-2 md:w-3" />
                           </button>
                           <div>{item.quantity}</div>
                           <button
                             onClick={() => updateQuantity(item.id, 1)}
                             className="rounded-full bg-muted hover:bg-secondary-foreground text-secondary-foreground hover:text-white p-1"
                           >
-                            <Plus size={12} />
+                            <Plus className="h-2 md:h-3 w-2 md:w-3" />
                           </button>
                         </div>
                       </div>
@@ -103,7 +103,7 @@ export default function CartSection() {
                           });
                         }}
                       >
-                        <X size={12} />
+                        <X  className="h-2 md:h-3 w-2 md:w-3" />
                       </button>
                     </TableCell>
                   </TableRow>
@@ -113,10 +113,10 @@ export default function CartSection() {
                 <TableRow>
                   <TableCell colSpan={5}>
                     <div className="flex justify-between">
-                      <Button className="bg-muted hover:bg-white text-secondary-foreground rounded-full px-6">
+                      <Button className="bg-muted hover:bg-white text-secondary-foreground text-xs md:text-sm rounded-full px-6">
                         <NavLink to="/">Return to Shop</NavLink>
                       </Button>
-                      <Button className="bg-muted hover:bg-white text-secondary-foreground rounded-full px-6">
+                      <Button className="bg-muted hover:bg-white text-secondary-foreground text-xs md:text-sm rounded-full px-6">
                         Update Cart
                       </Button>
                     </div>
@@ -143,19 +143,19 @@ export default function CartSection() {
               </Field>
             </div>
           </div>
-          <div>
-            <Table className="border border-muted lg:min-w-sm">
+          <div className="pt-8 md:pt-0">
+            <Table className="border border-muted">
               <TableHeader>
                 <TableRow>
                   <TableHead>
-                    <div className="text-lg font-medium text-secondary-foreground">
+                    <div className="text-base md:text-lg font-medium text-secondary-foreground">
                       Cart Total
                     </div>
                   </TableHead>
                   <TableHead></TableHead>
                 </TableRow>
               </TableHeader>
-              <TableBody>
+              <TableBody className="text-xs md:text-sm">
                 <TableRow>
                   <TableCell>Subtotal:</TableCell>
                   <TableCell>${totalAmount}</TableCell>
