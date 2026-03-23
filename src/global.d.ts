@@ -1,8 +1,13 @@
 interface Product{
     id: number;
     images:string;
+    thumbnail: string;
     title:string;
     price:string;
+    description: string;
+    brand: string;
+    discountPercentage: string;
+    category:string;
 }
 
 interface NavItem {

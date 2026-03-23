@@ -7,6 +7,7 @@ import PrivateRoute from "./components/layout/PrivateRoute";
 import Layout from "./components/layout/Layout";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           </Route>
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/productDetail" element={<ProductDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>

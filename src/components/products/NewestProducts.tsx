@@ -29,7 +29,7 @@ function NewestProductsClient({ productsPromise }: NewestProductProps) {
           Newest Products
         </div>
         <NavLink
-          to="/productview"
+          to="/productView"
           className="flex gap-2 text-xs md:text-sm lg:text-base font-medium text-primary hover:text-dark pt-2 md:pt-0"
         >
           View All <ArrowRight className="h-3 md:h-5 w-3 md:w-5" />

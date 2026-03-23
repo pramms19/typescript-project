@@ -2,6 +2,7 @@ import { Handbag, Star, Heart, Eye } from "lucide-react";
 import { Card } from "../ui/card";
 import { useCart } from "@/store/CartStore";
 import { useWishlist } from "@/store/WishlistStore";
+import { NavLink } from "react-router-dom";
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { cartItems, addToCart, removeCart } = useCart();
@@ -29,7 +30,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Card className="group relative border border-neutral-200 hover:border-primary hover:shadow-lg hover:shadow-hover flex flex-col items-center p-4">
-      <img src={product.images} alt="apple" className="pb-2" />
+      <NavLink to="/productDetail"><img src={product.images} alt="apple" className="pb-2" /></NavLink>
       <div className="flex gap-5 md:gap-12 justify-between items-center">
         <div>
           <div className="text-neutral-600 text-xs line-clamp-1">
