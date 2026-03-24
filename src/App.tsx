@@ -19,8 +19,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route element={<PrivateRoute />}>
             <Route path="/userDashboard" element={<UserDashboard />} />
+            <Route path="/wishlist" element={<Wishlist />} />
           </Route>
-          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/products/:id" element={<ProductDetail />} />
         </Route>
