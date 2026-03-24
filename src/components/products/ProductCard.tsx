@@ -30,7 +30,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Card className="group relative border border-neutral-200 hover:border-primary hover:shadow-lg hover:shadow-hover flex flex-col items-center p-4">
-      <NavLink to="/productDetail"><img src={product.images} alt="apple" className="pb-2" /></NavLink>
+      <NavLink to={`/products/${product.id}`}><img src={product.images} alt="apple" className="pb-2" /></NavLink>
       <div className="flex gap-5 md:gap-12 justify-between items-center">
         <div>
           <div className="text-neutral-600 text-xs line-clamp-1">

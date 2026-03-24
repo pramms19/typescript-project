@@ -1,9 +1,9 @@
-import { fetchProducts } from "@/actions/fetchProducts";
 import { Suspense, use } from "react";
 import ProductDetailCard from "./ProductDetailCard";
+import { fetchProductsById } from "@/actions/fetchProductDetails";
 
-export default function ProductDetailSection() {
-  const productsPromise = fetchProducts(1);
+export default function ProductDetailSection({id}:{id:number}) {
+  const productsPromise = fetchProductsById(id);
 
   return (
     <Suspense fallback={<div className="p-8">Loading Product...</div>}>
@@ -12,24 +12,20 @@ export default function ProductDetailSection() {
   );
 }
 
-interface ProductResponse {
-  products: Product[];
-}
-
 interface ProductDetailProps {
-  productsPromise: Promise<ProductResponse>;
+  productsPromise: Promise<Product>;
 }
 
 function DetailSection({ productsPromise }: ProductDetailProps) {
-  const productsData = use(productsPromise);
-  console.log(productsData?.products);
+  const product = use(productsPromise);
+  
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8">
 {/* Product Cards */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-        {productsData?.products.map((product) => (
-          <ProductDetailCard key={product.id} product={product} />
-        ))}
+       
+          <ProductDetailCard product={product} />
+
       </div>
     </div>
   )

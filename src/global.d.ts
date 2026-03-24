@@ -8,6 +8,8 @@ interface Product{
     brand: string;
     discountPercentage: string;
     category:string;
+    availabilityStatus: string;
+    tags: string;
 }
 
 interface NavItem {
