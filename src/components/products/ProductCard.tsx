@@ -6,8 +6,7 @@ import { NavLink } from "react-router-dom";
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { cartItems, addToCart, removeCart } = useCart();
-  const { addToWishlist, removeWishlist, isWishlisted } =
-    useWishlist();
+  const { addToWishlist, removeWishlist, isWishlisted } = useWishlist();
 
   const inWishlist = isWishlisted(product.id);
   const inCart = cartItems.some((item) => item.id === product.id);
@@ -28,10 +27,14 @@ export default function ProductCard({ product }: ProductCardProps) {
     }
   };
 
+  const rating = product.rating;
+
   return (
     <Card className="group relative border border-neutral-200 hover:border-primary hover:shadow-lg hover:shadow-hover flex flex-col items-center p-4">
-      <NavLink to={`/products/${product.id}`}><img src={product.images} alt="apple" className="pb-2" /></NavLink>
-      <div className="flex gap-5 md:gap-12 justify-between items-center">
+      <NavLink to={`/products/${product.id}`}>
+        <img src={product.images} alt="apple" className="pb-2" />
+      </NavLink>
+      <div className="flex gap-5 md:gap-12 justify-evenly items-center">
         <div>
           <div className="text-neutral-600 text-xs line-clamp-1">
             {product.title}
@@ -40,11 +43,39 @@ export default function ProductCard({ product }: ProductCardProps) {
             {product.price}
           </div>
           <div className="flex gap-1">
+            {/* <Star size={10} className="fill-chart-5  text-chart-5" />
             <Star size={10} className="fill-chart-5  text-chart-5" />
             <Star size={10} className="fill-chart-5  text-chart-5" />
             <Star size={10} className="fill-chart-5  text-chart-5" />
-            <Star size={10} className="fill-chart-5  text-chart-5" />
-            <Star size={10} className="fill-neutral-500 text-neutral-500" />
+            <Star size={10} className="fill-neutral-500 text-neutral-500" /> */}
+
+            {Array.from({ length: 5 }, (_, index) => {
+              if (index < Math.floor(rating)) {
+                return (
+                  <Star
+                    key={index}
+                    size={10}
+                    className="fill-chart-5 text-chart-5"
+                  />
+                );
+              } else if (index < rating) {
+                return (
+                  <Star
+                    key={index}
+                    size={10}
+                    className="fill-chart-5/50 text-chart-5/50"
+                  />
+                );
+              } else {
+                return (
+                  <Star
+                    key={index}
+                    size={10}
+                    className="fill-neutral-300 text-neutral-300"
+                  />
+                );
+              }
+            })}
           </div>
         </div>
         <button
@@ -56,6 +87,15 @@ export default function ProductCard({ product }: ProductCardProps) {
           }`}
         >
           <Handbag strokeWidth={1} />
+          {/* <button
+          onClick={handleCart}
+          className="bg-background hover:bg-primary hover:text-white rounded-full place-content-center h-8 md:h-10 w-8 md:w-10 p-1 md:p-2"
+        >
+          {inCart ? (
+            <Handbag strokeWidth={1} className="text-primary hover:text-white"/>
+          ) : (
+            <Handbag strokeWidth={1} />
+          )} */}
         </button>
         <div className="absolute top-1/14 right-4 hidden group-hover:flex flex-col space-y-2">
           <button

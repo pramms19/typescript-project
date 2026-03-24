@@ -10,6 +10,7 @@ interface Product{
     category:string;
     availabilityStatus: string;
     tags: string;
+    rating:number;
 }
 
 interface NavItem {
