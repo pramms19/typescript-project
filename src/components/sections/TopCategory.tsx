@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Suspense, use } from "react";
-import { fetchCategories } from "../actions/fetchCategories";
-import { ProductSkeleton } from "./skeleton/ProductSkeletonCard";
+import { ProductSkeleton } from "../skeleton/ProductSkeletonCard";
+import { fetchCategories } from "@/actions/fetchCategories";
 
 interface Category {
   name: string;

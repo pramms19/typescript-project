@@ -1,5 +1,5 @@
-import RouteBar from "@/components/RouteBar";
-import SignInCard from "@/components/SignInCard";
+import RouteBar from "@/components/nav/RouteBar";
+import SignInCard from "@/components/user/SignInCard";
 
 export default function Login() {
   return (

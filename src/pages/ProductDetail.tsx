@@ -1,6 +1,6 @@
-import ProductDetailSection from "@/components/ProductDetailSection";
-import ProductInfo from "@/components/ProductInfo";
-import RouteBar from "@/components/RouteBar";
+import ProductDetailSection from "@/components/productDetails/ProductDetailSection";
+import ProductInfo from "@/components/productDetails/ProductInfo";
+import RouteBar from "@/components/nav/RouteBar";
 import { useParams } from "react-router-dom";
 
 export default function ProductDetail() {

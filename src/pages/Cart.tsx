@@ -1,11 +1,11 @@
 import CartSection from "@/components/CartSection";
-import RouteBar from "@/components/RouteBar";
+import RouteBar from "@/components/nav/RouteBar";
 
-export default function Cart(){
-    return(
-        <div>
-            <RouteBar/>
-            <CartSection/>
-        </div>
-    )
+export default function Cart() {
+  return (
+    <div>
+      <RouteBar />
+      <CartSection />
+    </div>
+  );
 }

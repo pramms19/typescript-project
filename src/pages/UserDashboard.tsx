@@ -1,5 +1,5 @@
-import ProfileSection from "@/components/ProfileSection";
-import RouteBar from "@/components/RouteBar";
+import RouteBar from "@/components/nav/RouteBar";
+import ProfileSection from "@/components/user/ProfileSection";
 
 export default function UserDashboard() {
   return (

@@ -1,5 +1,5 @@
-import RouteBar from "@/components/RouteBar";
-import SignUpCard from "@/components/SignUpCard";
+import RouteBar from "@/components/nav/RouteBar";
+import SignUpCard from "@/components/user/SignUpCard";
 
 export default function Register() {
   return (
