@@ -1,9 +1,9 @@
 import { Eye } from "lucide-react";
-import { Button } from "./ui/button";
-import { Checkbox } from "./ui/checkbox";
-import { Field, FieldGroup } from "./ui/field";
-import { Input } from "./ui/input";
-import { InputGroup, InputGroupAddon } from "./ui/input-group";
+import { Button } from "../ui/button";
+import { Checkbox } from "../ui/checkbox";
+import { Field, FieldGroup } from "../ui/field";
+import { Input } from "../ui/input";
+import { InputGroup, InputGroupAddon } from "../ui/input-group";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as z from "zod";
@@ -41,7 +41,7 @@ export default function SignUpCard() {
       terms: false,
     },
   });
-  
+
   const onSubmit = async (formData: UserFormData) => {
     setServerError(null);
     // remove unnecessary fields
@@ -64,7 +64,7 @@ export default function SignUpCard() {
 
     try {
       const { data } = await axios.request(options);
-      
+
       toast.success("Account Created Successfully!", {
         position: "top-center",
       });

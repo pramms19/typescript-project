@@ -6,13 +6,13 @@ import {
   Settings,
   ShoppingBag,
 } from "lucide-react";
-import { Card, CardTitle } from "./ui/card";
+import { Card, CardTitle } from "../ui/card";
 import { useAuthStore } from "@/store/AuthStore";
 import { useNavigate } from "react-router-dom";
 import { Suspense, use, useState } from "react";
 import { fetchUser } from "@/actions/fetchUser";
-import { Dialog, DialogClose, DialogContent, DialogTitle } from "./ui/dialog";
-import { Button } from "./ui/button";
+import { Dialog, DialogClose, DialogContent, DialogTitle } from "../ui/dialog";
+import { Button } from "../ui/button";
 
 export default function ProfileSection() {
   //   const userPromise = useMemo(() => fetchUser(), []);

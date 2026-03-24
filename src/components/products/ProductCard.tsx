@@ -32,7 +32,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Card className="group relative border border-neutral-200 hover:border-primary hover:shadow-lg hover:shadow-hover flex flex-col items-center p-4">
       <NavLink to={`/products/${product.id}`}>
-        <img src={product.images} alt="apple" className="pb-2" />
+        <img src={product.images} alt={product.title} className="pb-2" />
       </NavLink>
       <div className="flex gap-5 md:gap-12 justify-evenly items-center">
         <div>
@@ -43,12 +43,6 @@ export default function ProductCard({ product }: ProductCardProps) {
             {product.price}
           </div>
           <div className="flex gap-1">
-            {/* <Star size={10} className="fill-chart-5  text-chart-5" />
-            <Star size={10} className="fill-chart-5  text-chart-5" />
-            <Star size={10} className="fill-chart-5  text-chart-5" />
-            <Star size={10} className="fill-chart-5  text-chart-5" />
-            <Star size={10} className="fill-neutral-500 text-neutral-500" /> */}
-
             {Array.from({ length: 5 }, (_, index) => {
               if (index < Math.floor(rating)) {
                 return (

@@ -1,7 +1,8 @@
 import ProductDetailSection from "@/components/productDetails/ProductDetailSection";
-import ProductInfo from "@/components/productDetails/ProductInfo";
 import RouteBar from "@/components/nav/RouteBar";
 import { useParams } from "react-router-dom";
+// import NewestProducts from "@/components/products/NewestProducts";
+// import ProductInfo from "@/components/productDetails/ProductInfo";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -18,7 +19,8 @@ export default function ProductDetail() {
     <div>
       <RouteBar />
       <ProductDetailSection id={productId} />
-      <ProductInfo />
+      {/* <ProductInfo /> */}
+      {/* <NewestProducts/> */}
     </div>
   );
 }

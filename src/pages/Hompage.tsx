@@ -1,10 +1,10 @@
-import TopCategory from "@/components/TopCategory";
-import SaleSection from "@/components/SaleSection";
 import NewestProducts from "@/components/products/NewestProducts";
 import ClientTestimonial from "@/components/sections/ClientTestimonial";
 import SocialMedia from "@/components/sections/SocialMedia";
-import HeaderSection from "@/components/HeaderSection";
 import { FeaturedProducts } from "@/components/products/FeaturedProducts";
+import HeaderSection from "@/components/sections/HeaderSection";
+import TopCategory from "@/components/sections/TopCategory";
+import SaleSection from "@/components/sections/SaleSection";
 
 export default function Homepage() {
   return (

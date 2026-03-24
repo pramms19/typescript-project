@@ -1,7 +1,7 @@
 export default function ProductInfo(){
     return(
         <div>
-            <nav className="grid grid-cols-2 place-items-center">
+            <nav className="grid grid-cols-2 place-items-center py-4">
                 <div className="hover:underline">Additional Information
 
                 </div>
