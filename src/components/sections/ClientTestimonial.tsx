@@ -1,56 +1,29 @@
-import { Star } from "lucide-react";
+import { CircleUserRound, Star } from "lucide-react";
 import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { fetchReviews } from "@/actions/fetchReviews";
 
 export default function ClientTestimonial() {
-  const customer = [
-    {
-      id: 1,
-      review:
-        "Pellentesque eu nibh eget mauris congue mattis mattis nec tellus.Phasellus imperdiet elit eu magna dictum, bibendum cursus velitsodales. Donec sed neque eget",
-      profile: "/assets/m1.jpg",
-      name: "Robert Fox",
-      text: "Customer",
-    },
-    {
-      id: 2,
-      review:
-        "Pellentesque eu nibh eget mauris congue mattis mattis nec tellus.Phasellus imperdiet elit eu magna dictum, bibendum cursus velitsodales. Donec sed neque eget",
-      profile: "/assets/m2.jpg",
-      name: "Dianne Russell",
-      text: "Customer",
-    },
-    {
-      id: 3,
-      review:
-        "Pellentesque eu nibh eget mauris congue mattis mattis nec tellus.Phasellus imperdiet elit eu magna dictum, bibendum cursus velitsodales. Donec sed neque eget",
-      profile: "/assets/m3.jpg",
-      name: "Eleanor Pena",
-      text: "Customer",
-    },
-    {
-      id: 4,
-      review:
-        "Pellentesque eu nibh eget mauris congue mattis mattis nec tellus.Phasellus imperdiet elit eu magna dictum, bibendum cursus velitsodales. Donec sed neque eget",
-      profile: "/assets/m1.jpg",
-      name: "Robert Fox",
-      text: "Customer",
-    },
-    {
-      id: 5,
-      review:
-        "Pellentesque eu nibh eget mauris congue mattis mattis nec tellus.Phasellus imperdiet elit eu magna dictum, bibendum cursus velitsodales. Donec sed neque eget",
-      profile: "/assets/m2.jpg",
-      name: "Dianne Russell",
-      text: "Customer",
-    },
-  ];
+  const [reviews, setReviews] = useState<any[]>([]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const [cardsToShow, setCardsToShow] = useState(3); // Number of cards to show at once
-  const maxIndex = customer.length - cardsToShow;
 
+  // Fetch Reviews
+  useEffect(() => {
+    const loadReviews = async () => {
+      try {
+        const data = await fetchReviews();
+        setReviews(data.slice(0, 12));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    loadReviews();
+  }, []);
+
+  // Carousel
   useEffect(() => {
     const updateCards = () => {
       if (window.innerWidth < 640) {
@@ -61,12 +34,15 @@ export default function ClientTestimonial() {
         setCardsToShow(3);
       }
     };
+
     updateCards();
     window.addEventListener("resize", updateCards);
     return () => {
       window.removeEventListener("resize", updateCards);
     };
   }, []);
+
+  const maxIndex = Math.max(0, reviews.length - cardsToShow);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex >= maxIndex ? 0 : prevIndex + 1));
@@ -92,37 +68,67 @@ export default function ClientTestimonial() {
                 transform: `translateX(-${translateValue}%)`,
               }}
             >
-              {customer.map((item) => {
+              {reviews.map((item) => {
                 return (
                   <div
                     key={item.id}
                     className="bg-white p-5 rounded-md shadow-md space-y-4 shrink-0"
                     style={{ width: `calc(${100 / cardsToShow}% - 1rem)` }}
                   >
-                    <img src="/assets/Vector.png" />
-                    <div className="text-sm text-gray-700">{item.review}</div>
-                    <div className="flex justify-between gap-4 items-center ">
-                      <div className="flex gap-4 items-center">
-                        <img
-                          src={item.profile}
+                    {/* <img src="/assets/Vector.png" /> */}
+
+                    <div className="flex justify-between items-center pr-2 ">
+                      <div className="flex gap-1 items-center">
+                        {/* <img
+                          src=""
                           className="rounded-full h-14 w-14 object-cover"
+                        /> */}
+                        <CircleUserRound
+                          strokeWidth={1}
+                          className="text-neutral-400 rounded-full h-14 w-14 object-cover"
                         />
                         <div>
-                          <p className="text-base font-medium text-secondary">
-                            {item.name}
+                          <p className="text-sm font-medium text-secondary line-clamp-1">
+                            {item.reviewerName}
                           </p>
-                          <p className="text-sm text-neutral-400">
-                            {item.text}
-                          </p>
+                          <p className="text-xs text-neutral-400">Customer</p>
                         </div>
                       </div>
 
-                      <div className="flex gap-1">
-                        <Star size={15} className="fill-sale" strokeWidth={0} />
-                        <Star size={15} className="fill-sale" strokeWidth={0} />
-                        <Star size={15} className="fill-sale" strokeWidth={0} />
-                        <Star size={15} className="fill-sale" strokeWidth={0} />
-                        <Star size={15} className="fill-sale" strokeWidth={0} />
+                      <div className="items-center space-y-2">
+                        <div className="text-sm text-gray-700">
+                          {item.comment}
+                        </div>
+
+                        <div className="flex gap-1">
+                          {Array.from({ length: 5 }, (_, index) => {
+                            if (index < Math.floor(item.rating)) {
+                              return (
+                                <Star
+                                  key={index}
+                                  size={10}
+                                  className="fill-chart-5 text-chart-5"
+                                />
+                              );
+                            } else if (index < item.rating) {
+                              return (
+                                <Star
+                                  key={index}
+                                  size={10}
+                                  className="fill-chart-5/50 text-chart-5/50"
+                                />
+                              );
+                            } else {
+                              return (
+                                <Star
+                                  key={index}
+                                  size={10}
+                                  className="fill-neutral-300 text-neutral-300"
+                                />
+                              );
+                            }
+                          })}
+                        </div>
                       </div>
                     </div>
                   </div>
