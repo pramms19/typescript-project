@@ -2,6 +2,7 @@ import { useCart } from "@/store/CartStore";
 import { useWishlist } from "@/store/WishlistStore";
 import { Handbag, Star, Heart, Eye } from "lucide-react";
 import { Card } from "../ui/card";
+import { NavLink } from "react-router-dom";
 
 export default function DealsCard({ product }: ProductCardProps) {
   const { cartItems, addToCart, removeCart } = useCart();
@@ -32,7 +33,9 @@ export default function DealsCard({ product }: ProductCardProps) {
     <Card className="group relative border border-neutral-200 hover:border-primary hover:shadow-lg hover:shadow-hover rounded-sm flex items-center p-2">
       <div className="flex justify-between content-center gap-5">
         <div className="flex space-x-4 items-center">
-          <img src={product.images} alt="image" className="h-20" />
+          <NavLink to={`/products/${product.id}`}>
+            <img src={product.images} alt={product.title} className="h-20" />
+          </NavLink>
           <div className="block hover:hidden">
             <p className="text-neutral-600 text-xs line-clamp-1">
               {product.title}
@@ -75,7 +78,9 @@ export default function DealsCard({ product }: ProductCardProps) {
       <div className="absolute hidden group-hover:block bg-background pb-2">
         <div className="flex justify-between content-center gap-5">
           <div className="flex space-x-4 items-center">
-            <img src={product.images} alt="image" className="h-20" />
+            <NavLink to={`/products/${product.id}`}>
+              <img src={product.images} alt={product.title} className="h-20" />
+            </NavLink>
             <div className="space-y-2 pr-4">
               <p className="text-primary text-xs line-clamp-1">
                 {product.title}

@@ -12,8 +12,21 @@ import { useCart } from "@/store/CartStore";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
-  const { totalCount } = useCart();
+  const { cartItems, totalCount } = useCart();
   const { wishlist } = useWishlist();
+
+  const calculateTotal = () => {
+    return cartItems
+      .reduce((acc, item) => {
+        const price =
+          typeof item.price === "string"
+            ? parseFloat(item.price.replace(/[^0-9.-]+/g, ""))
+            : item.price;
+        return acc + price * item.quantity;
+      }, 0)
+      .toFixed(2);
+  };
+  const totalAmount = calculateTotal();
 
   return (
     <div className="border-t border-neutral-200">
@@ -46,7 +59,9 @@ export default function Navbar() {
 
         <div className="flex gap-1 items-center">
           <div className="relative flex items-center">
-            <NavLink to="/wishlist"><Heart size={28} strokeWidth={1} /></NavLink>
+            <NavLink to="/wishlist">
+              <Heart size={28} strokeWidth={1} />
+            </NavLink>
             <div className="absolute bottom-1/2 left-1/2 h-4 w-4 rounded-full bg-red-700 text-white text-xs text-center">
               {wishlist.length}
             </div>
@@ -54,7 +69,9 @@ export default function Navbar() {
           <div className="text-neutral-400 text-2xl font-light">|</div>
           <div className="flex gap-2">
             <div className="relative flex items-center">
-              <NavLink to="/cart"><Handbag size={28} strokeWidth={1} /></NavLink>
+              <NavLink to="/cart">
+                <Handbag size={28} strokeWidth={1} />
+              </NavLink>
               <div className="absolute bottom-1/2 left-1/2 h-4 w-4 rounded-full bg-red-700 text-white text-xs text-center">
                 {totalCount}
               </div>
@@ -64,7 +81,7 @@ export default function Navbar() {
                 Shopping Cart:
               </div>
               <div className="text-base text-neutral-800 font-medium">
-                $60.00
+                ${totalAmount}
               </div>
             </div>
           </div>
