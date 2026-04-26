@@ -1,73 +1,73 @@
-# React + TypeScript + Vite
+# Glow Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a responsive e-commerce web application built using React, Typescript and Tailwind CSS. It provides seamless shopping experience with dynamic product listings, authentication and functional cart and wislist systems. Products in this website are fetched from [DummyJSON](https://dummyjson.com/products) while user authentication is handled using [FreeAPI](https://freeapi.hashnode.space/api-guide/apireference/getUserById).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+### Product & UI
+- Responsive design
+- Product listing from API
+- Clean and modern UI with Tailwind CSS and shadcn/ui components
+- Hover effects and interactive components
+- Skeleton loading states during API fetching
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Authentication
+- User login and logout functionality
+- User data fetched from Free API
+- Basic session handling for authenticated users
 
-## Expanding the ESLint configuration
+### Cart Functionality
+- Add to cart
+- Remove from cart
+- Update product quantity
+- Dynamic subtotal & total calculation
+- Persistent cart using **localStorage**
+- Real-time cart updates using global state
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Wishlist Functionality
+- Add/remove items to wishlist
+- Wishlist persistence using **localStorage**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### State & Architecture
+- Global state management using Zustand
+- Optimized rendering with React hooks (`useMemo`, `useEffect`)
+- Reusable and modular component structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### UX Enhancements
+- Toast notifications for actions
+- Smooth navigation with React Router
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Technologies Used
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- React (with TypeScript)
+- Tailwind CSS
+- shadcn/ui
+- React Router DOM
+- Lucid React Icons
+- Vite
+- Zod (for validation)
+- Zustand (state management)
+- DummyJSON API (products)
+- Free API (user authentication)
+- localStorage (cart and wishlist persistence)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## Installation
+
+1. Clone the repository
+   - git clone [https://github.com/pramms19/typescript-project.git](https://github.com/pramms19/typescript-project.git)
+2. Navigate to the project
+   - cd typescript-project
+3. Install dependencies
+   - npm install
+4. Run the project
+   - npm run dev
+
+## Author
+Pramada Shrestha
+[https://github.com/pramms19](https://github.com/pramms19)
