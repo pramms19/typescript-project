@@ -35,7 +35,7 @@ export default function CartSection() {
     .toFixed(2);
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8">
+    <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary-foreground py-8">
         My Shopping Cart
       </div>
@@ -103,7 +103,7 @@ export default function CartSection() {
                           });
                         }}
                       >
-                        <X  className="h-2 md:h-3 w-2 md:w-3" />
+                        <X className="h-2 md:h-3 w-2 md:w-3" />
                       </button>
                     </TableCell>
                   </TableRow>

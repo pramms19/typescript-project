@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 export default function SaleSection() {
   
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-14">
+    <div className="px-4 sm:px-6 lg:px-8 py-14 max-w-7xl mx-auto">
       <div className="grid grid-col-1 lg:grid-cols-3 gap-5">
         
         {/* Card */}

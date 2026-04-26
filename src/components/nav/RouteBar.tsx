@@ -11,10 +11,12 @@ import { Home } from "lucide-react";
 export default function RouteBar() {
   return (
     <nav className="bg-[url(/assets/bg-m.jpg)] bg-cover bg-center h-15 md:h-20 w-auto overflow-hidden px-4 sm:px-6 lg:px-8 grid content-center">
-      <Breadcrumb>
+      <Breadcrumb className="max-w-7xl mx-auto">
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/"><Home strokeWidth={1}/></BreadcrumbLink>
+            <BreadcrumbLink href="/">
+              <Home strokeWidth={1} />
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

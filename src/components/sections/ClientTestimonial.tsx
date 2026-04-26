@@ -56,7 +56,7 @@ export default function ClientTestimonial() {
   return (
     <div className="py-14">
       <div className="bg-muted px-4 sm:px-6 lg:px-8 py-14">
-        <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary-foreground pb-10 text-center">
+        <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-secondary-foreground pb-10 text-center max-w-7xl mx-auto">
           Client Testimonial
         </div>
 

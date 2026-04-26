@@ -10,7 +10,7 @@ export default function SocialMedia() {
     { id: 6, image: "/assets/sm-6.jpg" },
   ];
   return (
-    <div className="px-4 sm:px-6 lg:px-8 ">
+    <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-secondary-foreground text-2xl md:text-3xl font-semibold text-center">
         Follow us on Instagram
       </div>

@@ -29,7 +29,7 @@ export default function Navbar() {
   const totalAmount = calculateTotal();
 
   return (
-    <div className="border-t border-neutral-200">
+    <div className="border-t border-neutral-200 max-w-7xl mx-auto">
       <div className="px-4 sm:px-6 lg:px-8 h-15 md:h-20 flex items-center justify-between ">
         <div className="flex gap-2 items-center">
           {/* <img src="/assets/logo.png" alt="Logo" /> */}

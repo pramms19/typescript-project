@@ -3,7 +3,7 @@ import { Twitter, Globe, Instagram, Facebook } from "lucide-react";
 export default function Footer() {
   return (
     <div className="bg-card-foreground py-8 sm:py-10 lg:py-14 px-4 sm:px-6 lg:px-8 ">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-5 justify-items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-5 justify-items-center max-w-7xl mx-auto">
         <div className="space-y-4 text-center lg:text-left">
           <div className="text-white text-base lg:text-xl font-medium">About Shoppery</div>
           <p className="text-neutral-500 text-xs lg:text-sm">
@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-neutral-600 mt-10 pt-8">
+      <div className="border-t border-neutral-600 mt-10 pt-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           <div className="flex gap-3 justify-center md:justify-start">
             <div className="w-6 h-6 hover:bg-primary rounded-full flex items-center justify-center p-1">

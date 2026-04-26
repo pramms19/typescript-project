@@ -29,8 +29,8 @@ export default function HeaderSection() {
     },
   ];
   return (
-    <div className="bg-background relative rounded-md mt-4 px-4 sm:px-6 lg:px-8 ">
-      <div className="lg:flex justify-between space-y-5 h-full w-full gap-5 py-18 mx-auto max-w-7xl pb-8 md:pb-2 lg:pb-0">
+    <div className="bg-background relative rounded-md mt-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="lg:flex justify-between space-y-5 h-full w-full gap-5 py-18 pb-8 md:pb-2 lg:pb-0">
         <div className="text-wrap justify-items-center lg:justify-items-normal">
           <div className="text-primary text-xs md:text-sm font-medium pb-2 md:pb-0">
             Welcome to Shopery

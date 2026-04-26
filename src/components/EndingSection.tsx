@@ -7,7 +7,7 @@ import { InputGroupInput } from "./ui/input-group";
 export default function EndingSection() {
   return (
     <div className="bg-muted px-4 sm:px-6 lg:px-8 mt-14 py-4 md:py-8">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center max-w-7xl mx-auto">
         <div className="flex gap-2 items-center">
           {/* <img src="/assets/logo.png" alt="Logo" /> */}
           <p className="font-semibold text-secondary-foreground text-xl md:text-3xl">
